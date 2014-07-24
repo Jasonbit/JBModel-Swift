@@ -5,24 +5,25 @@ My stab at a Swift implementation of JBModel. The premise is that you have a bas
 
 Currently I work mostly with Rails as backend services and you can usually expect things returned from an api call to be in a certain structure. For instance, say you had a company model (on server) and an api call like `/api/companies/12`. The JSON response would probably look like so:
 
-<code>
-	{
-   "name":"Doodle Corp",
-   "president":
-              {
-               "name":"John Stobs",
-               "age":58
-              }
-  }
-</code>
+<pre>
+{
+ "name":"Doodle Corp",
+ "president":
+            {
+             "name":"John Stobs",
+             "age":58
+            }
+}
+</pre>
 
 When this response is returned to the iOS client, there's no need to fill in the whole object graph manually. In theory, the following should happen:
-1. our network client/manager should hit the end point
-2. client/manager receives successful response, transforms JSON to a Dictionary
-3. client/manager also knows that it is in the context of a 'Company' and so it creates the top level model for the graph
-4. client/manager then passes Dictionary off to JBModel subclass (in this case, probably Customer) and JBModel does the rest.
 
-I've used the Objective-C version of this in a few production apps and they are very stable and have de/serialized millions of models with little or no crashes.
+1. our network client/manager should hit the end point
+2. client/manager receives successful response, transforms JSON to a Dictionary (or Array)
+3. client/manager also knows that it is in the context of a 'Company' and so it creates the top level model for the graph
+4. client/manager then passes Dictionary off to JBModel subclass (in this case, probably Customer) and JBModel populates the rest of the properties graph.
+
+I've used the Objective-C version of this in a few production apps and they are very stable and have de/serialized millions of models over the years with little or no crashes.
 
 Now, this is the Swift version. This is super preliminary and the only thing I have working is testing of various property values, Arrays, and Dictionaries being serialized into the proper places in a test User model.
 
@@ -37,7 +38,8 @@ I'll be posting some follow up on my Swift blog - <a href="http://www.swiftpursu
 _Fine print: I am building this for how I work on projects, so if it doesn't do what you want, please feel free to fork and do what you want with it. I'm taking a very opinionated approach to this and only building it for what I want._
 
 **Contact:**
-here, on this repo
-Twitter: <a href="https://twitter.com/jasonbits">@jsonbits</a>
-Or see my <a href="http://www.swiftpursuit.com/about">Swift Pursuit blog about page</a> 
+
+* here, on this repo
+* Twitter: <a href="https://twitter.com/jasonbits">@jsonbits</a>
+* Or see my <a href="http://www.swiftpursuit.com/about">Swift Pursuit blog about page</a> 
 
