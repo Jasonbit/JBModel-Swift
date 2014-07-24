@@ -29,7 +29,6 @@ class JBModel: NSObject, NSCoding {
         }
         
         // Setup the attributes index
-        //      println(reflect(self)[index].0 + ": "+reflect(self)[index].1.summary)
         var attributesIndex:Array = []
         for var index=0; index < reflect(self).count; ++index {
             var key = reflect(self)[index].0
@@ -37,26 +36,56 @@ class JBModel: NSObject, NSCoding {
                 attributesIndex.append(key)
             }
         }
-//        println("\nattribute keys: \(attributesIndex)\n")
-        
-        // Flip the attributesMap dict
-        var amap:Dictionary<String, String> = Dictionary()
-        for key in attributesMap.keys {
-            var val: String? = attributesMap[key]
-            amap[val!] = key
-        }
-//        println("\nattributes map: \(amap)\n")
         
         // Iterate over attributes k/v and set
         for key in attributes.keys {
-            println("key: \(key)")
-            var propertyName:String?     = amap[key]
+
+            var propertyName:String?     = attributesMap[key]
             var propertyVal: AnyObject?  = attributes[key]
             
-            if (propertyName && propertyVal){
-                println(" prop: \(propertyName!) : \(propertyVal!)")
-                println("  setting..")
-                setValue(propertyVal!, forKey: propertyName!)
+            if propertyName && propertyVal {
+                let p = propertyName!
+
+                // Haven't yet found the best way to match up multiple optionals like this on a 
+                // single line. Dunno if it's even possible..
+                if let start = find(p.lowercaseString, "<") {
+                    if  let end = find(p.lowercaseString, ">") {
+
+                        if propertyVal is Array<AnyObject> {
+
+                            // Separate out the property name and the type included in the array
+                            var className = propertyName![start...end]
+                            // predecessor() makes sure we roll the index back one to lop off '<'
+                            let finalPropertyName = p[p.startIndex...start.predecessor()]
+                            
+                            className = className.substringFromIndex(className.startIndex.successor())
+                            className = className.substringToIndex(className.endIndex.predecessor())
+                            
+                            var array = Array<AnyObject>()
+                            for dict in propertyVal as Array<AnyObject> {
+                                
+                                var anyobjectype : AnyObject.Type? = NSClassFromString(className)
+                                if anyobjectype {
+                                    var nsobjectype : NSObject.Type = anyobjectype! as NSObject.Type
+                                    var object: AnyObject = nsobjectype()
+                                    object.updateWithAttributes?(dict as Dictionary<String, AnyObject>)
+                                    array.append(object)
+                                }
+
+                            }
+                            setValue(array, forKey: finalPropertyName)
+                            
+                        } else {
+                            println("propertyVal \(propertyVal) is not an array and it needs to be if you are specifying a class type in the mapping")
+                        }
+
+                    }
+                    
+                } else {
+                    
+                    setValue(propertyVal!, forKey: propertyName!)
+                    
+                }
             }
             
         }
