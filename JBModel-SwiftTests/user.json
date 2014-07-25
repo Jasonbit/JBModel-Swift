@@ -1,0 +1,48 @@
+{
+    "user_id":      634,
+    "first_name":   "Jim",
+    "last_name":    "Smith",
+    "phone":        "4155551212",
+    "slug":         "2dc8xS",
+    "gender":       "male",
+    "dob":          "04/12/1975",
+    "created_at":   1393290464,
+    "friends":      [
+                     {
+                     "user_id":      3768,
+                     "first_name":   "Susan",
+                     "last_name":    "Jones",
+                     "phone":        "4085551456",
+                     "slug":         "1xaD3L",
+                     "gender":       "female",
+                     "dob":          "07/19/1979",
+                     "created_at":   1385341839
+                     },
+                     {
+                     "user_id":      222,
+                     "first_name":   "Oleg",
+                     "last_name":    "Vasili",
+                     "phone":        "5105551234",
+                     "slug":         "1acMpJ",
+                     "gender":       "male",
+                     "dob":          "10/20/1981",
+                     "created_at":   1374714651
+                     }
+    ],
+    "settings": {
+        "email_me":         "yes",
+        "refresh_internal": 10,
+        "rating":           3.7
+    },
+    "best_friend": {
+        "user_id":      145,
+        "first_name":   "William",
+        "last_name":    "Livingston",
+        "phone":        "4155556789",
+        "slug":         "1xfZPs",
+        "gender":       "male",
+        "dob":          "04/12/1975",
+        "created_at":   1393290464,
+    }
+    
+}

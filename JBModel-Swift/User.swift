@@ -31,6 +31,10 @@ let kAttrSettings   = "settings"
 let kAttrBestFriend = "best_friend"
 
 
+// In order for the class instantiation to work, we need to
+// provide the @objc tag and obj-c class name. Maybe this 
+// will change later.
+
 @objc(User) class User: JBModel {
     
     
@@ -68,6 +72,8 @@ let kAttrBestFriend = "best_friend"
         super.init(defaultAttributesMap: defaultAttributesMap)
     }
     
+    // Would be nice to code up a way to make all this boilerplate
+    // NSCoding go away.
     init( coder decoder : NSCoder!) {
         
         id          = decoder.decodeObjectForKey(kAttrUserId) as Int
@@ -85,7 +91,9 @@ let kAttrBestFriend = "best_friend"
         super.init(coder: decoder)
         
     }
-    
+
+    // Ditto - would be nice to code up a way to make all this boilerplate
+    // NSCoding go away.
     override func encodeWithCoder( encoder: NSCoder!) {
         
         encoder.encodeObject(id,            forKey:kAttrUserId)

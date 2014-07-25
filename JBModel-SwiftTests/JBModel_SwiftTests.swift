@@ -68,4 +68,20 @@ class JBModel_SwiftTests: XCTestCase {
         XCTAssert(user.settings?.keys.array.count == 3, "user settings count != 3")
     }
     
+    func testSerializationFromJson() {
+        
+        var collection: AnyObject? = JsonUtils.returnJsonAsCollection()
+        XCTAssertNotNil(collection!, "json string can't be nil")
+        
+        var user = User()
+        user.updateWithAttributes(collection as Dictionary<String,AnyObject>)
+        
+        //        println((dump(user)))
+        
+        XCTAssert(user.friends?.count == 2, "user friends count != 2")
+        XCTAssert(user.settings?.keys.array.count == 3, "user settings count != 3")
+        
+        
+    }
+    
 }

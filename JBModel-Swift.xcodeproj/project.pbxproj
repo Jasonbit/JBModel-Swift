@@ -14,9 +14,18 @@
 		9666545D197F2F6500731B31 /* JBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666545B197F2F6500731B31 /* JBModel.swift */; };
 		9666545F197F2F7300731B31 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666545E197F2F7300731B31 /* User.swift */; };
 		96665460197F2F7300731B31 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666545E197F2F7300731B31 /* User.swift */; };
+		9684A0C51981E4A4004246AC /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 9684A0C41981E4A4004246AC /* user.json */; };
+		9684A0C71981E779004246AC /* JsonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684A0C61981E779004246AC /* JsonUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		96336F491981EC0900B55988 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96665436197F2F1600731B31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9666543E197F2F1600731B31;
+			remoteInfo = "JBModel-Swift";
+		};
 		9666544C197F2F1600731B31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96665436197F2F1600731B31 /* Project object */;
@@ -35,6 +44,8 @@
 		96665451197F2F1600731B31 /* JBModel_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBModel_SwiftTests.swift; sourceTree = "<group>"; };
 		9666545B197F2F6500731B31 /* JBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBModel.swift; sourceTree = "<group>"; };
 		9666545E197F2F7300731B31 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9684A0C41981E4A4004246AC /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		9684A0C61981E779004246AC /* JsonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonUtils.swift; sourceTree = "<group>"; };
 		96E46822197F755600F3C89C /* JBModel.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JBModel.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,8 +109,10 @@
 		9666544E197F2F1600731B31 /* JBModel-SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				9684A0C31981E489004246AC /* json */,
 				96665451197F2F1600731B31 /* JBModel_SwiftTests.swift */,
 				9666544F197F2F1600731B31 /* Supporting Files */,
+				9684A0C61981E779004246AC /* JsonUtils.swift */,
 			);
 			path = "JBModel-SwiftTests";
 			sourceTree = "<group>";
@@ -110,6 +123,14 @@
 				96665450197F2F1600731B31 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9684A0C31981E489004246AC /* json */ = {
+			isa = PBXGroup;
+			children = (
+				9684A0C41981E4A4004246AC /* user.json */,
+			);
+			name = json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +177,7 @@
 			);
 			dependencies = (
 				9666544D197F2F1600731B31 /* PBXTargetDependency */,
+				96336F4A1981EC0900B55988 /* PBXTargetDependency */,
 			);
 			name = "JBModel-SwiftTests";
 			productName = "JBModel-SwiftTests";
@@ -210,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9684A0C51981E4A4004246AC /* user.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,12 +255,18 @@
 				96665452197F2F1600731B31 /* JBModel_SwiftTests.swift in Sources */,
 				9666545D197F2F6500731B31 /* JBModel.swift in Sources */,
 				96665460197F2F7300731B31 /* User.swift in Sources */,
+				9684A0C71981E779004246AC /* JsonUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		96336F4A1981EC0900B55988 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9666543E197F2F1600731B31 /* JBModel-Swift */;
+			targetProxy = 96336F491981EC0900B55988 /* PBXContainerItemProxy */;
+		};
 		9666544D197F2F1600731B31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9666543E197F2F1600731B31 /* JBModel-Swift */;
