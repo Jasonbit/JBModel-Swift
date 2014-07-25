@@ -1,7 +1,7 @@
 JBModel-Swift
 =============
 
-My stab at a Swift implementation of JBModel. The premise is that you have a base model that will de/serialize properties in and out of Arrays/Dictionaries returned from a JSON string. This is very usefule for writing apps that use JSON apis.
+My stab at a Swift implementation of JBModel. The premise is that you have a base model that will de/serialize properties in and out of Arrays/Dictionaries returned from a JSON string. This is very useful for writing apps that use JSON apis.
 
 Currently I work mostly with Rails as backend services and you can usually expect things returned from an api call to be in a certain structure. For instance, say you had a company model (on server) and an api call like `/api/companies/12`. The JSON response would probably look like so:
 
@@ -40,6 +40,6 @@ _Fine print: I am building this for how I work on projects, so if it doesn't do 
 **Contact:**
 
 * here, on this repo
-* Twitter: <a href="https://twitter.com/jasonbits">@jsonbits</a>
+* Twitter: <a href="https://twitter.com/jasonbits">@jasonbits</a>
 * Or see my <a href="http://www.swiftpursuit.com/about">Swift Pursuit blog about page</a> 
 
